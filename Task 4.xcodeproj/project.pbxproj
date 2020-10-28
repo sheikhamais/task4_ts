@@ -18,6 +18,10 @@
 		A401A20A2547F0D300F301F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401A2092547F0D300F301F3 /* Constants.swift */; };
 		A401A20D25480B2C00F301F3 /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401A20C25480B2C00F301F3 /* TodoItemTableViewCell.swift */; };
 		A401A20F25483DBB00F301F3 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401A20E25483DBB00F301F3 /* Protocols.swift */; };
+		A401A241254950B700F301F3 /* SideMenuRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401A240254950B700F301F3 /* SideMenuRootViewController.swift */; };
+		A401A2432549569900F301F3 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401A2422549569800F301F3 /* ImagesListViewController.swift */; };
+		A46693BE25497516003A062A /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46693BD25497516003A062A /* PeopleListTableViewCell.swift */; };
+		A46693C02549858D003A062A /* GalleryImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46693BF2549858D003A062A /* GalleryImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		A401A2092547F0D300F301F3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A401A20C25480B2C00F301F3 /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
 		A401A20E25483DBB00F301F3 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		A401A240254950B700F301F3 /* SideMenuRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuRootViewController.swift; sourceTree = "<group>"; };
+		A401A2422549569800F301F3 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
+		A46693BD25497516003A062A /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
+		A46693BF2549858D003A062A /* GalleryImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageTableViewCell.swift; sourceTree = "<group>"; };
 		B8B49CF9B808189D46118587 /* Pods_Task_4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +113,8 @@
 			children = (
 				A401A20B25480AF000F301F3 /* Cells */,
 				A401A1CD254699A000F301F3 /* TodoListViewController.swift */,
+				A401A240254950B700F301F3 /* SideMenuRootViewController.swift */,
+				A401A2422549569800F301F3 /* ImagesListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				A401A20C25480B2C00F301F3 /* TodoItemTableViewCell.swift */,
+				A46693BD25497516003A062A /* PeopleListTableViewCell.swift */,
+				A46693BF2549858D003A062A /* GalleryImageTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -258,11 +270,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46693BE25497516003A062A /* PeopleListTableViewCell.swift in Sources */,
+				A401A2432549569900F301F3 /* ImagesListViewController.swift in Sources */,
 				A401A20A2547F0D300F301F3 /* Constants.swift in Sources */,
 				A401A1CE254699A000F301F3 /* TodoListViewController.swift in Sources */,
 				A401A20F25483DBB00F301F3 /* Protocols.swift in Sources */,
 				A401A20D25480B2C00F301F3 /* TodoItemTableViewCell.swift in Sources */,
 				A401A1CA254699A000F301F3 /* AppDelegate.swift in Sources */,
+				A401A241254950B700F301F3 /* SideMenuRootViewController.swift in Sources */,
+				A46693C02549858D003A062A /* GalleryImageTableViewCell.swift in Sources */,
 				A401A1CC254699A000F301F3 /* SceneDelegate.swift in Sources */,
 				A401A2082547737400F301F3 /* TodoItem.swift in Sources */,
 			);

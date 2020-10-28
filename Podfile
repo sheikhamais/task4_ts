@@ -8,5 +8,6 @@ target 'Task 4' do
   # Pods for Task 4
 
   pod 'RealmSwift', '~> 10.0.0'
+  pod 'SideMenu'
 
 end

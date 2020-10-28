@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    var realm: Realm?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        let url = Realm.Configuration.defaultConfiguration.fileURL
+//        let config = Realm.Configuration(fileURL: url, inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: .none, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: .none)
+//        Realm.Configuration.defaultConfiguration = config
+//        realm = try! Realm(configuration: config)
+//        print(config.fileURL)
+        
         return true
     }
 

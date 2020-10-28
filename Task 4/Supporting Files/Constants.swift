@@ -7,3 +7,5 @@
 //
 
 let TODO_ITEM_CELL_IDENTIFIER = "todoItemCell"
+let USER_CELL_IDENTIFIER = "personCell"
+let GALLERY_CELL_IDENTIFIER = "galleryImageCell"

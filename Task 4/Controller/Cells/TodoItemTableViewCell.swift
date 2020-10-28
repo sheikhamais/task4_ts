@@ -13,6 +13,7 @@ class TodoItemTableViewCell: UITableViewCell
     @IBOutlet weak var taskTitleLabel: UILabel!
     @IBOutlet weak var deleteBtnView: UIView!
     @IBOutlet weak var deleteBtnWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cellContainerView: UIView!
     
     var delegate: TodoItemTableViewCellDelegate?
     
@@ -20,6 +21,7 @@ class TodoItemTableViewCell: UITableViewCell
     {
         super.awakeFromNib()
         
+        cellContainerView.layer.cornerRadius = 5
         setupGestures()
     }
     

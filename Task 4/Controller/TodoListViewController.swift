@@ -8,25 +8,27 @@
 
 import UIKit
 import RealmSwift
+import SideMenu
 
 class TodoListViewController: UIViewController
 {
     @IBOutlet weak var todoListTableView: UITableView!
     
     var realm: Realm?
-    
     var todoListArray: Results<TodoItem>?
+    
+//    var menu: UISideMenuNavigationController?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
         
         getRealmObj()
         loadList()
+        setupSideMenu()
     }
 
     @IBAction func addItemPressed(_ sender: UIBarButtonItem)
@@ -37,7 +39,7 @@ class TodoListViewController: UIViewController
         }
         let addAction = UIAlertAction(title: "Save", style: .default)
         { [unowned self] (alertAction) in
-            
+
             guard self.realm != nil else { return }
             if alert.textFields?.first != nil, alert.textFields?.first?.text != ""
             {
@@ -60,6 +62,7 @@ class TodoListViewController: UIViewController
         alert.addAction(cancelAction)
         alert.addAction(addAction)
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     func getRealmObj()
@@ -79,27 +82,52 @@ class TodoListViewController: UIViewController
         todoListTableView.reloadData()
     }
     
+    func setupSideMenu()
+    {
+        //instantiate
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "sideMenuRoot") as! SideMenuRootViewController
+        let menu = UISideMenuNavigationController(rootViewController: vc)
+        SideMenuManager.default.menuLeftNavigationController = menu
+        
+        //presentation style
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        
+        //adding gestures
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.view)
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+    }
+    
 }
 
 extension TodoListViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return todoListArray?.count ?? 1
+        if todoListArray == nil || todoListArray?.count == 0
+        {
+            return 1
+        }
+        else
+        {
+            return todoListArray!.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = todoListTableView.dequeueReusableCell(withIdentifier: TODO_ITEM_CELL_IDENTIFIER, for: indexPath) as! TodoItemTableViewCell
-        cell.delegate = self
-        
-        guard todoListArray != nil
+        guard todoListArray != nil, todoListArray?.count != 0
         else
         {
+            let cell = UITableViewCell()
             cell.textLabel?.text = "no tasks added!"
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: 15)
+            cell.textLabel?.textColor = .white
+            cell.backgroundColor = .clear
             return cell
         }
+        
+        let cell = todoListTableView.dequeueReusableCell(withIdentifier: TODO_ITEM_CELL_IDENTIFIER, for: indexPath) as! TodoItemTableViewCell
+        cell.delegate = self
         
         cell.taskTitleLabel.text = todoListArray![indexPath.row].title
         if todoListArray![indexPath.row].isComplete
